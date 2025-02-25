@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link , useNavigate} from "react-router-dom"
 import useGlobalReducer from "../hooks/useGlobalReducer"
 
 
@@ -6,7 +6,7 @@ import useGlobalReducer from "../hooks/useGlobalReducer"
 
 const urlApi = import.meta.env.VITE_BACKEND_URL
 
-
+const navigate = useNavigate()
 
 
 
@@ -59,7 +59,7 @@ export const logIn = async (infoUser) => {
 
         if(response.ok){
 
-            window.location.href = "https://vigilant-orbit-wrgxr7qv46ppcvjxq-3000.app.github.dev/private";
+            navigate("/private")
         }
         else{
             alert("the user or password are not valid")
