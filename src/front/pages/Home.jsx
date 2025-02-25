@@ -1,18 +1,28 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
-import { Login } from "./Login.jsx";
-import { Singup } from "./Singup.jsx";
+import { Link } from "react-router-dom";
 
 
 export const Home = () => {
 
-  const {store, dispatch} =useGlobalReducer()
+  
+
+
 
 	return (
 		<>
-			{/* <Singup></Singup> */}
-			<p>-------------------------------------LOGIN-----------------------</p>	
-			<Login></Login>
+			<div className="container">
+
+
+				<Link to="/singup">
+						<button type="button" class="btn btn-primary">Sing up</button>
+				</Link>
+
+				<Link to="/login">
+						<button type="button" class="btn btn-primary">Login</button>
+				</Link>
+
+
+			</div>
+
 		</>
 		
 

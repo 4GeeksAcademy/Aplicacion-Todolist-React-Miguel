@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { logIn, protectedRoute } from "../services/APIServices";
+import { useEffect } from "react";
 
 
 
@@ -12,20 +13,21 @@ export const Login = () => {
 
         setState({...state  , [event.target.name]: event.target.value})
 
-
+            
     }
 
     const handdleLogin = (info_user) => {
 
+
         logIn(info_user)
 
-        protectedRoute()
-
+        
     }
 
 
     return (
         <div className="text-center mt-5">
+            <h1>----LOGIN----</h1>
             <form>
                 <div className="mb-3">
                     <label htmlFor="email" className="form-label">Email address</label>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import useGlobalReducer from "../hooks/useGlobalReducer"
 
 
@@ -56,9 +57,12 @@ export const logIn = async (infoUser) => {
         
         sessionStorage.setItem("token", data.token)
 
-        if(!response.ok){
+        if(response.ok){
 
-            return print("No se pudo crear ese usuario ")
+            window.location.href = "https://vigilant-orbit-wrgxr7qv46ppcvjxq-3000.app.github.dev/private";
+        }
+        else{
+            alert("the user or password are not valid")
         }
 
     } catch (error) {
@@ -86,13 +90,28 @@ export const protectedRoute = async () => {
 
         })
 
+        console.log(response)
+
         const data = await response.json()
 
-        console .log(data)
+       
+        
+        
+        if (!response.ok) {
+            console.log(error, "Fallo al entrar a private")
+            return false
+        }
+        if (response.ok) {
+            console.log( "Puedes entrar a private")
+
+            return true
+        }
 
     } catch (error) {
         
         console.log(error, "Error al entrar a private")
+
+       
 
     }
 
